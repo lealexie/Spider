@@ -48,11 +48,9 @@ def getStockInfo(lst, stockURL, fpath):
 
             with open(fpath, 'a', encoding='utf-8') as f:
                 f.write( str(infoDict) + '\n' )
-                count = count + 1
-               
+                count = count + 1             
         except:
             count = count + 1
-          
             continue
 
 def main():
