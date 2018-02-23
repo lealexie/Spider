@@ -48,15 +48,17 @@ def getStockInfo(lst, stockURL, fpath):
 
             with open(fpath, 'a', encoding='utf-8') as f:
                 f.write( str(infoDict) + '\n' )
-                count = count + 1             
+                count = count + 1   
+                print(count*100/len(lst))          
         except:
             count = count + 1
+            print(count*100/len(lst)) 
             continue
 
 def main():
     stock_list_url = 'http://quote.eastmoney.com/stocklist.html'
     stock_info_url = 'https://gupiao.baidu.com/stock/'
-    output_file = 'StockInfo.txt'
+    output_file = '/home/manyue/Project/Git/Spider/Stock/StockInfo.txt'
     slist=[]
     getStockList(slist, stock_list_url)
     getStockInfo(slist, stock_info_url, output_file)
