@@ -21,9 +21,9 @@ print(response.read())
 
 baseURL = "https://www.baidu.com/s?"
 
-keywords_path = "/home/manyue/Project/Git/Spider/Baidu/keywords.txt" 
-link_path = "/home/manyue/Project/Git/Spider/Baidu/get_link.txt"
-text_path = "/home/manyue/Project/Git/Spider/Baidu/get_text.txt"
+keywords_path = "/home/manyue/project/Git/Spider/Baidu/keywords.txt" 
+link_path = "/home/manyue/project/Git/Spider/Baidu/get_link.txt"
+text_path = "/home/manyue/project/Git/Spider/Baidu/get_text.txt"
 
 with open(keywords_path,'r') as f:
 	for word in f:
@@ -51,15 +51,24 @@ with open(link_path,'r') as f:
 			response = urllib2.urlopen(request)
 			read_response = response.read()
 			soup = BeautifulSoup(read_response,"html.parser")
-			find_text = soup.find_all('p')
-			for t in find_text:
-				
-				content = t.string.strip() + '\n'
-				print(content)
+			find_text = soup.find('article',attrs={'class':'article'})
+			content = find_text.find_all('p')
+			string = ''
 
-#				file = open(text_path,'w')
- #   			file.write(content)
-  #  			file.close()
+			for t in content:
+
+				print(t.text)
+
+
+				
+				
+			#	print(t.text)
+
+
+			#with open(text_path,'w'):
+
+   			#	file.write(string + '\n')
+  					
 		
 
 		except Exception as e:
