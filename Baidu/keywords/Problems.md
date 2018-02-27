@@ -1,6 +1,7 @@
 ### 文章内容不能写到文件里？
 编码的问题 unicode -> unicode.encode('utf-8') 
 ```
+string = ''
 soup = BeautifulSoup(read_response,"html.parser")
 content = soup.find_all('p')
 for t in content:
